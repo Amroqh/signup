@@ -145,28 +145,6 @@
                     messagesDiv.style.color = "red";
                 }
             }
-
-
-                // تجهيز النص المراد حفظه بالملف
-                let fileContent = `--- User Registration Data ---\n`;
-                fileContent += `Timestamp: ${new Date().toLocaleString()}\n`;
-                fileContent += `Username: ${username}\n`;
-                fileContent += `Password: ${password}\n`;
-                fileContent += `-------------------------------\n`;
-
-                // إنشاء كائن Blob يحتوي على النص المكتوب بصيغة UTF-8
-                let blob = new Blob([fileContent], { type: "text/plain;charset=utf-8" });
-
-                // إنشاء رابط وهمي في الذاكرة لتنزيل الملف
-                let downloadLink = document.createElement("a");
-                downloadLink.href = URL.createObjectURL(blob);
-                downloadLink.download = `user_${username}_data.txt`; // اسم الملف الذي سيتم تحميله
-
-                // تفعيل الرابط برمجياً لبدء التنزيل تلقائياً ثم حذفه
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-            }
         </script>
     </body>
 </html>
